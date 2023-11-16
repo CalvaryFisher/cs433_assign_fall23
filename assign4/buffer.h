@@ -1,13 +1,15 @@
 /**
 * Assignment 4: Producer Consumer Problem
  * @file buffer.h
- * @author ??? (TODO: your name)
+ * @author Reece Harris & Calvary Fisher
  * @brief header file for the buffer class
  * @version 0.1
  */
 
 #ifndef ASSIGN4_BUFFER_H
 #define ASSIGN4_BUFFER_H
+#include <vector>
+using namespace std;
 
 // Define the data type of the buffer items
 typedef int buffer_item;
@@ -17,7 +19,11 @@ typedef int buffer_item;
  */
 class Buffer {
 private:
-    // TODO: Add your implementation of the buffer class here
+    int size;
+    int num_elements;
+    int in = 0;
+    int out = 0;
+    vector <buffer_item> buffer;
 
 public:
     /**
@@ -45,7 +51,7 @@ public:
      * @return true if successful
      * @return false if not successful
      */
-    bool remove_item(buffer_item *item);
+    bool remove_item(buffer_item item);
 
     /**
      * @brief Get the size of the buffer
