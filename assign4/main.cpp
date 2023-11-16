@@ -75,11 +75,15 @@ void *consumer(void *param) {
 }
 
 int main(int argc, char *argv[]) {
+    
     //Initializing locks
     pthread_mutex_init(&mutex_lock, NULL);
     //Semaphore initialization (open) - named semaphore
     //WHAT DO THE FLAGS 0644 MEAN? SHARABLE BY OTHER FUNCITONS?
     empty = sem_open("empty", O_CREAT, 0644, 5);
+    // in Chap 7.3 they gave an uppercase name to the semaphores in sem_open
+    // Thinking this might help distinguish between variable empty
+    // and initialized shared named semaphore?
     full = sem_open("full", O_CREAT, 0644, 0);
     
 
